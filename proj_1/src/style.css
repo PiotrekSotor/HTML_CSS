@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+header{
+    padding: 10px 10px 10px 0;
+    align-content: center;
+    text-align: center;
+    background-color:#DDE6DE;
+}
+
+body{
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    width: 960px;
+}
+
+.clear{
+    clear: left;
+    clear: right;
+}
+
+.footer{
+ background-color: #dde6de;
+    text-align: center;
+}
+
+#slogan{
+    color: #CC0000;
+}
+
+ul.menu, ul.menu li{
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.menu{
+    width:100%;
+    height: 45px;
+    background-color: #6699ff;
+}
+
+ul.menu li{
+    float: left;
+}
+
+ul.menu li a:link{
+    line-height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+aside{
+    clear: left;
+    width: 300px;
+    float: left;
+    /*background-color: aquamarine;*/
+}
+
+#container{
+    float:right;
+    width: 640px;
+    /*background-color: bisque;*/
+}
