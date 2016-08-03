@@ -183,7 +183,7 @@ span.readmore a:hover{
     margin-bottom: 4%;
 }
 
-.left p, .right p{
+.left p, .right p, .content p{
     font-size: 1.4em;
     line-height: 1.4em;
     color:#7d7d7d;
@@ -262,6 +262,121 @@ span.readmore a:hover{
     text-transform: uppercase;
     padding: 1% 0;
     text-align: center;
+}
+
+footer{
+    margin-top: 10px;
+    border-top: 7px solid #2f2f2f;
+    background: url("../images/wild_oliva.png") top left repeat;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 32px;
+
+}
+
+.footer-left{
+    width: 46%;
+    float: left;
+    margin: 2%;
+    /*background: #7d7d7d;*/
+}
+
+.footer-right{
+    width: 46%;
+    float: right;
+    margin: 2%;
+    /*background: #7cb029;*/
+}
+
+ul.social{
+    float:right;
+}
+
+ul.social li{
+    float: left;
+    margin-left: 10px;
+}
+
+ul.social li a{
+    display: block;
+    height: 32px;
+    width: 32px;
+    text-indent: 100%;
+    overflow: hidden;
+    background-image: url("../images/socials.png");
+    -webkit-transition: all 350ms;
+    -moz-transition: all 350ms;
+    -o-transition: all 350ms;
+    transition: all 350ms;
+}
+
+.facebook a{
+    background-position: 0 0;
+}
+
+.facebook a:hover{
+    background-position: 0 -32px;
+}
+
+
+.twitter a{
+    background-position: 0 -64px;
+}
+
+.twitter a:hover{
+    background-position: 0 -96px;
+}
+
+.spotify a{
+background-position: 0 -128px;
+}
+
+.spotify a:hover{
+    background-position: 0 -160px;
+}
+
+.title{
+    height: 80px;
+    width: 100%;
+    background: url("../images/slogan-bg.jpg") no-repeat top center;
+    background-size: cover;
+    overflow: hidden;
+    border-top: 4px solid #7cb029;
+    border-bottom: 4px solid #7cb029;
+}
+
+.title h1{
+    font-family: 'Impact', sans-serif;
+    font-size: 3em;
+    color: #393b38;
+    display: inline;
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.8);
+    line-height: 70px;
+}
+
+.content{
+    width: 65%;
+    float: left;
+}
+
+.sidebar{
+    width: 35%;
+    float: right;
+    padding-left: 4%;
+}
+
+.content h1, .sidebar h1{
+    color: #7cb029;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.sidebar img{
+    border: 5px solid #7cb029;
+    margin-bottom: 15px;
 }
 
 /*---MAX-WIDTH 1024---*/
@@ -359,6 +474,23 @@ span.readmore a:hover{
         -o-transform: translateY(0);
         transform: translateY(0);
     }
+
+    .title{
+        text-align: center;
+    }
+    .content{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 510px){
+    .footer-left{
+        width: 96%;
+        text-align: center;
+    }
+    .footer-right{
+        display: none;
+    }
 }
 
 /*---MAX-WIDTH 480---*/
@@ -407,6 +539,10 @@ span.readmore a:hover{
 
     .realizations-box{
         width: 100%;
+    }
+
+    .content{
+        padding: 0 4%;
     }
 
 }
