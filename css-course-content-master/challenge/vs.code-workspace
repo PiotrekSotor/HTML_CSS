@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\AngularJS\\AngularJS\\temp"
+		},
+		{
+			"path": "..\\..\\Typescript\\tutorial"
+		},
+		{
+			"path": "..\\..\\Typescript\\MEAN\\mean-contactlist-angular2"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
