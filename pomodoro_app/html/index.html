@@ -7,7 +7,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
-    <title>Document</title>
+    
+    <link rel="icon" href="/img/tomato.svg" sizes="16x16">
+    <title>Pomodoro Timer</title>
 </head>
 <body>
     <div class="header-panel">
@@ -28,16 +30,16 @@
             <div class="timer-panel">
                 <div class="period-panel">
                     My Pomodoro period:
-                    <input type="text" class="wrapped-content" value="25:00" placeholder="25:00"/>
+                    <input id="input-period" type="text" oninput="" class="wrapped-content" value="25:00" placeholder="25:00"/>
                 </div>
-                <div class="timer">
+                <div id="timer-time" class="timer">
                     21:37
                 </div>
             </div>
             <div class="button-panel">
-                <button class="btn-style">Start</button>
-                <button class="btn-style">Stop</button>
-                <button class="btn-style">Reset</button>
+                <button id="btn-start" class="btn-style">Start</button>
+                <button id="btn-stop" class="btn-style">Stop</button>
+                <button id="btn-reset" class="btn-style">Reset</button>
             </div>
         </div>
         <div class="task-col">
@@ -70,6 +72,6 @@
 
         </div>
     </div>
-    
+    <script src="/js/script.js"></script>
 </body>
 </html>
