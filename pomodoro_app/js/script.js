@@ -4,7 +4,8 @@ var timeCounter = null;
 
 var outputTimer = document.getElementById('timer-time');
 
-setTimeValueOnScreen(lastValidInputPeriod)
+setTimeValueOnScreen(lastValidInputPeriod);
+updateTaskList();
 
 var inputPeriod = document.getElementById('input-period');
 inputPeriod.addEventListener('input', e => {
@@ -94,6 +95,73 @@ function secondsToTime(timeCounter){
 
     return `${minus}${minutes}:${seconds}`;
 }
+
+function updateTaskList(){
+    var data = [
+        {
+            period: '12:00 - 12:25',
+            task: 'Reading book'
+        },
+        {
+            period: '11:00 - 11:25',
+            task: 'Watching tutorials'
+        },
+        {
+            period: '10:00 - 10:25',
+            task: 'Exercises'
+        }
+    ];
+
+
+
+
+    var panel = document.getElementById('list-tasks');
+    while (panel.lastElementChild) {
+        panel.removeChild(panel.lastElementChild);
+    }
+
+    var ul = document.createElement('ul');
+    for (let element of data){
+        ul.appendChild(buildListElement(element.period, element.task));
+    }
+
+    if (data.length === 0){
+        ul.appendChild(buildListElement('', ''));
+    }
+
+    panel.appendChild(ul);
+}
+
+function buildListElement(period, task){
+    var li = document.createElement('li');
+    var divPeriod = document.createElement('div');
+    var divTask = document.createElement('div');
+
+    divPeriod.className = 'time-period';
+    divPeriod.innerHTML = period;
+
+    divTask.className = 'wrapped-content-text';
+    divTask.innerHTML = task;
+
+    li.appendChild(divPeriod);
+    li.appendChild(divTask);
+    return li; 
+}
+
+/* <ul>
+    <li>
+        <div class="time-period">12:00 - 12:25</div>
+        <div class="wrapped-content-text">Reading book</div>
+    </li>
+    <li>
+        <div class="time-period">11:00 - 11:25</div>
+        <div class="wrapped-content-text">Watching tutorials</div>
+    </li>
+    <li>
+        <div class="time-period">10:00 - 10:25</div>
+        <div class="wrapped-content-text">Exercises</div>
+    </li>
+</ul> */
 
 
 
