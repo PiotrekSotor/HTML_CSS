@@ -3,9 +3,28 @@ var timerInterval = null;
 var timeCounter = null;
 
 var outputTimer = document.getElementById('timer-time');
+var inputTaskDesc = document.getElementById('task-input');
+
+
+var data = [
+    {
+        period: '12:00 - 12:25',
+        task: 'Reading book'
+    },
+    {
+        period: '11:00 - 11:25',
+        task: 'Watching tutorials'
+    },
+    {
+        period: '10:00 - 10:25',
+        task: 'Exercises'
+    }
+];
+
+
 
 setTimeValueOnScreen(lastValidInputPeriod);
-updateTaskList();
+manageTaskList();
 
 var inputPeriod = document.getElementById('input-period');
 inputPeriod.addEventListener('input', e => {
@@ -31,6 +50,7 @@ btnStart.addEventListener('click', e => {
         timeCounter = timeToSeconds(lastValidInputPeriod);
     }
 
+    manageTaskList('start');
     setTimeValueOnScreen(secondsToTime(timeCounter));
     timerInterval = setInterval(() => tick(), 1000);
 });
@@ -43,6 +63,7 @@ function tick(){
 var btnStop = document.getElementById('btn-stop');
 btnStop.addEventListener('click', e => {
 
+    manageTaskList('pause');
     clearInterval(timerInterval);
     timerInterval = null;
     setTimeValueOnScreen(secondsToTime(timeCounter));
@@ -52,6 +73,8 @@ var btnReset = document.getElementById('btn-reset');
 btnReset.addEventListener('click', reset);
 
 function reset(){
+    
+    manageTaskList('stop');
     clearInterval(timerInterval);
     timerInterval = null;
     timeCounter = timeToSeconds(lastValidInputPeriod);
@@ -84,37 +107,48 @@ function secondsToTime(timeCounter){
     var workTimeCounter = Math.abs(timeCounter);
 
     var minutes = Math.floor(workTimeCounter/60);
-    if (minutes < 10) {
-        minutes = '0' + minutes;
-    }
     var seconds = workTimeCounter%60;
-    if (seconds < 10) {
-        seconds = '0' + seconds;
-    }
+    
+    formatTimeWithPadding(minutes, seconds)
     var minus = isNegative ? '-' : ''
 
-    return `${minus}${minutes}:${seconds}`;
+    return minus + formatTimeWithPadding(minutes, seconds);
 }
 
-function updateTaskList(){
-    var data = [
-        {
-            period: '12:00 - 12:25',
-            task: 'Reading book'
-        },
-        {
-            period: '11:00 - 11:25',
-            task: 'Watching tutorials'
-        },
-        {
-            period: '10:00 - 10:25',
-            task: 'Exercises'
-        }
-    ];
+function formatTimeWithPadding(first, second){
+    return first.toString().padStart(2, '0') + ':' + second.toString().padStart(2, '0');
+}
 
+function manageTaskList(action){
 
+    if (action === 'start'){
+        var taskDesc = inputTaskDesc.value;
+        var taskStartTime = getCurrentTime();
+        data = [{
+            period: taskStartTime + ' -',
+            task: taskDesc
+        }].concat(data);
+        
+    }
+    else if (action === 'pause'){
+        var currentEntry = data[0];
+        currentEntry.period = currentEntry.period + getCurrentTime() + ' ... '; 
+    } 
+    else if (action === 'stop'){
+        var currentEntry = data[0];
+        currentEntry.period = currentEntry.period + getCurrentTime(); 
+    }
 
+    updateTaskList(data);
+}
 
+function getCurrentTime(){
+    var date = new Date();
+    return formatTimeWithPadding(date.getHours(), date.getMinutes());
+}
+
+function updateTaskList(data){
+    
     var panel = document.getElementById('list-tasks');
     while (panel.lastElementChild) {
         panel.removeChild(panel.lastElementChild);
