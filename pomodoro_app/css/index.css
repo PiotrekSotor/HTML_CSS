@@ -66,6 +66,7 @@ input {
     padding: 10px;
     letter-spacing: 1px;
     text-decoration: none;
+    overflow-wrap: normal;
 }
 
 .container{
@@ -200,3 +201,28 @@ input::placeholder{
 .wrapped-content li{
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 580px) {
+    .logo{
+        height: 30px;
+    }
+
+    .container{
+        margin-top: 5vh;
+    }
+
+    .header-panel{
+        height: 60px;
+    }
+
+    .logo-text{
+        font-size: 17px;
+        margin-left: 3px;
+    }
+    a.btn-style{
+        font-size: 10px;
+    }
+    .timer, .timer-vanished{
+        font-size: 120px;
+    }
+  }

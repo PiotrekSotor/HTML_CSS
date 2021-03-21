@@ -6,20 +6,20 @@ var outputTimer = document.getElementById('timer-time');
 var inputTaskDesc = document.getElementById('task-input');
 var standardFontColor = outputTimer.className;
 
-var data = [
-    // {
-    //     period: '12:00 - 12:25',
-    //     task: 'Reading book'
-    // },
-    // {
-    //     period: '11:00 - 11:25',
-    //     task: 'Watching tutorials'
-    // },
-    // {
-    //     period: '10:00 - 10:25',
-    //     task: 'Exercises'
-    // }
-];
+// var data = [
+//     {
+//         period: '12:00 - 12:25',
+//         task: 'Reading book'
+//     },
+//     {
+//         period: '11:00 - 11:25',
+//         task: 'Watching tutorials'
+//     },
+//     {
+//         period: '10:00 - 10:25',
+//         task: 'Exercises'
+//     }
+// ];
 
 
 restoreDataFromCookies();
@@ -233,21 +233,18 @@ function restoreDataFromCookies(){
     for(var i=0;i < ca.length;i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf("data") == 0) {
-            localData = c.substring("data".length,c.length);
+        if (c.indexOf("data=") == 0) {
+            localData = c.substring("data=".length,c.length);
             break;
         }
     }
 
-    var newJson = localData.replace(/'/g, '"');
+    if (!localData) {
+        data = [];
+        return;
+    }
 
-    newJson = newJson.replace(/([^"]+)|("[^"]+")/g, function($0, $1, $2) {
-        if ($1) {
-            return $1.replace(/([a-zA-Z0-9]+?):/g, '"$1":');
-        } else {
-            return $2; 
-        } 
-    });
+    var newJson = localData.replace(/'/g, '"');
 
     data = JSON.parse(newJson);
 }
