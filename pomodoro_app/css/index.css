@@ -5,8 +5,18 @@ body{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 500;
-    /* background-color: antiquewhite; */
     background-color: white;
+}
+
+button,
+input {
+  font-family: 'Montserrat', sans-serif;
+  /* background-size: cover; */
+  /* box-sizing: content-box;  */
+
+  font-size: 100%; 
+  /* line-height: 1.15;  */
+  /* margin: 0;  */
 }
 
 .logo-panel{
@@ -15,10 +25,8 @@ body{
 }
 
 .logo{
-    /* background-image: url(/img/tomato.svg); */
-    /* background-size: 50px 50px; */
     height: 43px;
-    /* size: 28px; */
+    transform: translateY(-4px);
 }
 
 .logo-text{
@@ -41,14 +49,12 @@ body{
 
 .header{
     height: 100%;
-    /* width: 90%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     
     padding-left: 5%;
     padding-right: 5%;
-    
 }
 
 .btn-style{
@@ -56,6 +62,7 @@ body{
     background-color: #EA5455;
     border-radius: 50px;
     border-style: none;
+    font-weight: bold;
     padding: 10px;
     letter-spacing: 1px;
     text-decoration: none;
@@ -76,11 +83,8 @@ body{
 
 .timer-col, .task-col{
     flex: 1 1 400px;
-
-    /* margin: 1px; */
     margin-left: 5%;
     margin-right: 5%;
-    /* background: aqua; */
 }
 
 .task-col{
@@ -89,7 +93,7 @@ body{
 
 .wrapped-content{
     font-size: 17px;
-    background: #F3F3F3;
+    background-color: #F3F3F3;
     border-radius: 20px;
     border-width: 1px;
     border-style: solid;
@@ -98,12 +102,16 @@ body{
 
 }
 
-a:focus{
+a:hover{
     outline: none;
     background-color: #ea5454c4;
 }
 
 button:focus{
+    outline: none;
+}
+
+button:hover{
     outline: none;
     background-color: #ea5454c4;
 }
@@ -121,10 +129,23 @@ input::placeholder{
     width: 100%;
 }
 
-.timer
+.timer, .timer-vanished
 {
     text-align: center;
-    background: #F3F3F3;
+    background-color: #F3F3F3;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #707070;
+    padding: 5px;
+    font-size: 148px;
+    margin-bottom: 20px;
+}
+
+.timer-vanished{
+    color: #00000000;
+    text-align: center;
+    background-color: #F3F3F3;
     border-radius: 20px;
     border-width: 1px;
     border-style: solid;
@@ -174,7 +195,6 @@ input::placeholder{
 .wrapped-content ul{
     list-style: none;
     padding-left: 0;
-
 }
 
 .wrapped-content li{
